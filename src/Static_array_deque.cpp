@@ -14,48 +14,48 @@ StaticArrayDeque<T, n>::~StaticArrayDeque() noexcept {}
 
 template<typename T, std::size_t n>
 bool StaticArrayDeque<T, n>::empty() const noexcept {
-    return head_index == -1;
+    return size == 0;
 }
 
 template<typename T, std::size_t n>
 void StaticArrayDeque<T, n>::pop_back() {
-    if (head_index != -1) {
-        --head_index;
+    if (size != 0) {
+        --size;
     }
 }
 
 template<typename T, std::size_t n>
 void StaticArrayDeque<T, n>::pop_front() {
-    if (head_index != -1) {
-        std::copy(arr + 1, arr + head_index + 1, arr);
-        --head_index;
+    if (size != 0) {
+        std::copy(arr + 1, arr + size , arr);
+        --size;
     }
 }
 
 template<typename T, std::size_t n>
 void StaticArrayDeque<T, n>::push_back(const T& value) {
-    if (head_index < n - 1) {
-        arr[++head_index] = value;
+    if (size < n) {
+        arr[size++] = value;
     }
 }
 
 template<typename T, std::size_t n>
 void StaticArrayDeque<T, n>::push_front(const T& value) {
-    if (head_index < n - 1) {
-        std::copy_backward(arr, arr + head_index + 1, arr + head_index + 2);
+    if (size < n) {
+        std::copy_backward(arr, arr + size + 1, arr + size + 2);
         arr[0] = value;
-        ++head_index;
+        ++size;
     }
 }
 
 template<typename T, std::size_t n>
-std::size_t StaticArrayDeque<T, n>::size() const noexcept {
-    return head_index + 1;
+std::size_t StaticArrayDeque<T, n>::get_size() const noexcept {
+    return size ;
 }
 
 template<typename T, std::size_t n>
 T StaticArrayDeque<T, n>::back() const noexcept {
-    return arr[head_index];
+    return arr[size-1];
 }
 
 template<typename T, std::size_t n>

@@ -1,8 +1,8 @@
-add_executable(Static_array_deque_tests Static_array_deque.cpp)
+add_executable(test_deque test_deque.cpp)
 
-target_link_libraries(Static_array_deque_tests 
+target_link_libraries(test_deque 
 	gtest_main 
-	scl_lib
+	src_lib
 )
 
-add_test(long_number_tests long_number_tests)
+add_test(test_deque test_deque)

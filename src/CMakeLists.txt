@@ -1,8 +1,7 @@
 target_sources(src_lib
-	PRIVATE
-		Static_array_deque.cpp
 	PUBLIC
 		Static_array_deque.hpp
+		Static_array_deque.cpp
 )
 
 target_include_directories(src_lib PUBLIC

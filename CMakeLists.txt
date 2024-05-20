@@ -6,6 +6,8 @@ project(Static_array_deque)
 enable_testing()
 add_subdirectory(lib/googletest)
 
+add_library(src_lib "")
+
 add_subdirectory(src)
 add_subdirectory(test)
 
